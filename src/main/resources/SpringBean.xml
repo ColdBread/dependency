@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
+	<bean id="duke" class="com.mycompany.app.Juggler" >
+		<constructor-arg value="15" />
+	</bean>
+	<bean id="shevchenko" class="com.mycompany.app.Shevchenko" />
+	<bean id="poeticDuke" class="com.mycompany.app.PoeticJuggler">
+		<constructor-arg value="15" />
+		<constructor-arg ref="shevchenko"/>
+	</bean>
+		<bean id="poeticDuke2" class="com.mycompany.app.PoeticJuggler">
+		<constructor-arg value="15" />
+		<constructor-arg>
+			<bean class="com.mycompany.app.Shevchenko"/>
+		</constructor-arg>
+	</bean>
+	<bean id="theStage" class="com.mycompany.app.Stage" factory-method="getInstance"/>
+	<bean id="kenny" class="com.mycompany.app.Instrumentalist">
+		<property name="song" value="Jingle Bells"/>
+		<property name="instrument" ref="piano"/>
+	</bean>
+	<bean id="violin" class="com.mycompany.app.Violin"/>
+	<bean id="piano" class="com.mycompany.app.Piano"/>
+	<bean id="kenny2" class="com.mycompany.app.Instrumentalist"
+		p:song = 'Jingle Bells'
+		p:instrument-ref="violin"/>
+	<bean id='hank' class = 'com.mycompany.app.OneManBand'>
+		<property name="instruments">
+			<list>
+				<ref bean='violin'/>
+				<ref bean ='piano'/>
+			</list>
+		</property>
+	</bean>
+	<bean id = "hank2" class="com.mycompany.app.OneManBandNew">
+		<property name="instruments">
+			<map>
+				<entry key="Violin" value-ref="violin"/>
+				<entry key="Piano" value-ref="piano"/>
+			</map>
+		</property>
+	</bean>
+	
+</beans>

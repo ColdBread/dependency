@@ -18,5 +18,9 @@ public class App
     	poett.perform();
     	Performer playHank2 = (Performer) context.getBean("hank2");
     	playHank2.perform();
+    	
+    	
+    	Violonist viol = (Violonist) context.getBean("viol");
+    	viol.perform();
     }
 }

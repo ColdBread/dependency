@@ -14,13 +14,13 @@ public class App
     	ApplicationContext context = new ClassPathXmlApplicationContext("SpringBean.xml");
     	Performer performer = (Performer) context.getBean("duke");
     	performer.perform();
-    	Performer poett = (Performer) context.getBean("poeticDuke");
+    	/*Performer poett = (Performer) context.getBean("poeticDuke");
     	poett.perform();
     	Performer playHank2 = (Performer) context.getBean("hank2");
-    	playHank2.perform();
+    	playHank2.perform();*/
     	
     	
-    	Violonist viol = (Violonist) context.getBean("viol");
-    	viol.perform();
+    	/*Performer viol = (Violonist) context.getBean("viol");
+    	viol.perform();*/
     }
 }
